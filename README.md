@@ -7,7 +7,7 @@ Share Plate is a sustainability platform developed by Team Byte Force for OSMO H
 - **Problem Title:** "Share Plate" Connecting food to need 
 - **Team Name:** Byte Force 
 - **Team Members:** Puspita Pramanik, Papia Karmakar, Ritaja Choudhury, Subhajit Pramanick.
-Feature,Description
+## Feature,Description
 Matching Engine,Geo-location based and AI-powered to instantly notify nearby NGOs.
 Real-Time Data,Live food availability and instant NGO notifications.
 Logistics,Scheduled pickups with pickup route tracking and digital signatures.
