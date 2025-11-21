@@ -1,5 +1,5 @@
 🍽️ Share Plate: Connecting Food to Need
-Project Summary
+Project Summary:
 
 Share Plate is a sustainability platform developed by Team Byte Force for OSMO HACK 1. It addresses the massive daily waste of edible food by restaurants and hostels by creating a centralized digital link to NGOs. The project aims to reduce food waste, cut methane emissions, and provide timely meals to vulnerable communities.
 
