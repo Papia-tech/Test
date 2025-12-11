@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Tracking | SharePlate</title>
@@ -210,12 +212,9 @@
         }
 
         .map-view {
-            flex: 1;
-            background: #e5e7eb;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
         }
 
         .map-placeholder-content {
@@ -381,11 +380,7 @@
 
         <div class="map-card">
             <div class="map-view">
-                <div class="map-placeholder-content">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <h3>Live Map View</h3>
-                    <p>Real-time tracking integration would appear here.</p>
-                </div>
+                <div id="map"></div>
             </div>
 
             <div class="driver-info">
@@ -407,6 +402,28 @@
     </div>
 
     <script>
+        // Coordinates for [Latitude, Longitude]
+        const pickupLocation = [28.6139, 77.2090]; // Example: New Delhi
+        const dropoffLocation = [28.5355, 77.3910]; // Example: Noida
+
+        // Initialize map centered between points
+        const map = L.map('map').setView([28.58, 77.30], 11);
+
+        // Add OpenStreetMap tiles (The visual map layer)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add Markers
+        L.marker(pickupLocation).addTo(map)
+            .bindPopup('<b>Pickup Location</b><br>Hope Foundation NGO').openPopup();
+
+        L.marker(dropoffLocation).addTo(map)
+            .bindPopup('<b>Delivery Location</b><br>Community Center');
+
+        // Add a route line (Polyline)
+        const routeLine = [pickupLocation, dropoffLocation];
+        L.polyline(routeLine, {color: '#2d7a4d', weight: 4, dashArray: '10, 10'}).addTo(map);
         let currentStep = 2; // Starting at step 2 (Active)
 
         function nextStep() {
@@ -448,4 +465,5 @@
     </script>
 
 </body>
+
 </html>
