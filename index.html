@@ -1513,7 +1513,7 @@
         </div>
     </div>
 
-<script>
+    <script>
         // =========================================
         // === GLOBAL NAVIGATION LOGIC ===
         // =========================================
@@ -1740,17 +1740,102 @@
         };
 
     </script>
-    <script>
-    // 1. Check if user is logged in
-    const isLoggedIn = localStorage.getItem("loggedIn");
+    <script type="module">
+        // ... (Firebase initialization from step 2A)
+        // ... (redirectToLogin function from step 2A)
 
-    // 2. If NOT logged in, redirect to login page
-    if (!isLoggedIn) {
-        // We encode the current URL so we can pass it to login.html
-        const currentUrl = encodeURIComponent(window.location.href);
-        window.location.href = "login.html?returnUrl=" + currentUrl;
-    }
+        // New Guard: Listen for auth state change
+        // We initially hide the entire body using CSS/JS 
+        // until we know the auth state. For simplicity here, 
+        // we'll just let the redirect happen quickly.
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in.
+                console.log("User logged in:", user.email);
+                // Optional: You can fetch user-specific data here if needed.
+
+                // Show content (if you had hidden it)
+                document.body.style.display = 'block';
+
+            } else {
+                // User is signed out.
+                console.log("No user signed in. Redirecting...");
+                redirectToLogin();
+            }
+        });
+
+        // Update Sign Out button to use Firebase's signOut function
+        document.querySelector('.btn-signin').onclick = async (e) => {
+            e.preventDefault();
+            await auth.signOut();
+            window.location.href = "login.html";
+        };
+
     </script>
+<script type="module">
+    
+    // Import Firebase modules for App, Auth, and Firestore
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    
+    // 💡 FIX: Import onAuthStateChanged here!
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'; 
+    
+    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCCmwlaccAVrpH28cOsAnHAahfJec4Tgyc",
+        authDomain: "shareplate-b6397.firebaseapp.com",
+        projectId: "shareplate-b6397",
+        storageBucket: "shareplate-b6397.firebasestorage.app",
+        messagingSenderId: "557590065392",
+        appId: "1:557590065392:web:bcb9d10f40de8b9c2c1235",
+        measurementId: "G-DEL9JRXB5X"
+
+    };
+
+    // Initialize Firebase services
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app); // Authentication service
+    const db = getFirestore(app); // Firestore service added
+
+    // Function to handle redirection (use for consistency)
+    function redirectToLogin() {
+        // Check if we are already on the login page to prevent a loop
+        if (!window.location.href.includes("login.html")) {
+            const currentUrl = encodeURIComponent(window.location.href);
+            window.location.href = "login.html?returnUrl=" + currentUrl;
+        }
+    }
+    
+    // New Guard: Listen for auth state change
+    // We initially hide the entire body using CSS/JS 
+    // until we know the auth state. For simplicity here, 
+    // we'll just let the redirect happen quickly.
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in.
+            console.log("User logged in:", user.email);
+            // Optional: You can fetch user-specific data here if needed.
+
+            // Show content (if you had hidden it)
+            document.body.style.display = 'block';
+
+        } else {
+            // User is signed out.
+            console.log("No user signed in. Redirecting...");
+            redirectToLogin();
+        }
+    });
+
+    // Update Sign Out button to use Firebase's signOut function
+    document.querySelector('.btn-signin').onclick = async (e) => {
+        e.preventDefault();
+        await auth.signOut();
+        window.location.href = "login.html";
+    };
+
+</script>
 </body>
 
 </html>

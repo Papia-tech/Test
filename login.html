@@ -317,9 +317,12 @@
     </div>
 
     <script type="module">
+        // 🚨 IMPORTANT: Replace the placeholders below with your actual project details
+        
         // Import Firebase modules for App, Auth, and Firestore
+
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
         import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'; // Firestore added
 
         // Your web app's Firebase configuration
@@ -331,11 +334,13 @@
             messagingSenderId: "557590065392",
             appId: "1:557590065392:web:bcb9d10f40de8b9c2c1235",
             measurementId: "G-DEL9JRXB5X"
+
         };
 
-        // Initialize Firebase
+        // Initialize Firebase services
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+        const auth = getAuth(app); // Authentication service
+        const db = getFirestore(app); // Firestore service added
 
         // DOM Elements
         const panel = document.getElementById("panel");
@@ -353,7 +358,7 @@
         let isSignup = false;
         let selectedRole = "Restaurant";
 
-        // Role Selection (Original Logic - Unchanged)
+        // Role Selection (UNCHANGED)
         document.querySelectorAll(".role").forEach(role => {
             role.onclick = () => {
                 document.querySelectorAll(".role").forEach(r => r.classList.remove("active"));
@@ -362,7 +367,7 @@
             };
         });
 
-        // Toggle Between Sign In and Sign Up (Original Logic - Unchanged)
+        // Toggle Between Sign In and Sign Up (UNCHANGED)
         toggleBtn.onclick = () => {
             clearMessages();
 
@@ -396,48 +401,51 @@
             const password = passwordInput.value.trim();
             const username = usernameInput.value.trim();
 
-            // Validation
+            // Validation (UNCHANGED)
             if (isSignup && !username) {
                 showError("Please enter your name");
                 return;
             }
-
             if (!email) {
                 showError("Please enter your email");
                 return;
             }
-
             if (!password) {
                 showError("Please enter your password");
                 return;
             }
-
             if (password.length < 6) {
                 showError("Password must be at least 6 characters");
                 return;
             }
 
-            // Disable button and show loading
+            // Disable button and show loading (UNCHANGED)
             mainBtn.disabled = true;
             const originalText = mainBtn.textContent;
             mainBtn.innerHTML = '<span class="spinner"></span>';
 
             try {
                 if (isSignup) {
-                    // Sign Up
+                    // 1. Sign Up using Firebase Auth
                     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                     const user = userCredential.user;
 
-                    // Update user profile with name
+                    // 2. Update user profile with name
                     await updateProfile(user, {
                         displayName: username
                     });
 
-                    // Store role in localStorage (Firebase doesn't have built-in role management)
-                    localStorage.setItem('userRole', selectedRole);
-                    localStorage.setItem("loggedIn", "true");
+                    // 3. Save user data and role securely to Firestore
+                    // This replaces the insecure localStorage method.
+                    await setDoc(doc(db, "users", user.uid), {
+                        uid: user.uid,
+                        name: username,
+                        email: email,
+                        role: selectedRole, // Securely stored role
+                        createdAt: new Date().toISOString(),
+                    }); 
 
-                    showSuccess("Account created successfully!");
+                    showSuccess("Account created successfully! Redirecting...");
 
                     // Redirect after 1 second
                     setTimeout(() => {
@@ -447,9 +455,8 @@
                 } else {
                     // Sign In
                     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                    localStorage.setItem("loggedIn", "true");
 
-                    showSuccess("Login successful!");
+                    showSuccess("Login successful! Redirecting...");
 
                     // Redirect after 1 second
                     setTimeout(() => {
@@ -460,7 +467,7 @@
             } catch (error) {
                 console.error("Authentication error:", error);
 
-                // Handle specific errors
+                // Handle specific errors (UNCHANGED)
                 let errorMsg = "An error occurred. Please try again.";
 
                 if (error.code === 'auth/email-already-in-use') {
@@ -482,13 +489,13 @@
                 showError(errorMsg);
 
             } finally {
-                // Re-enable button
+                // Re-enable button (UNCHANGED)
                 mainBtn.disabled = false;
                 mainBtn.textContent = originalText;
             }
         };
 
-        // Helper Functions
+        // Helper Functions (UNCHANGED)
         function showError(message) {
             errorMessage.textContent = message;
             errorMessage.classList.add("show");
@@ -506,7 +513,7 @@
             successMessage.classList.remove("show");
         }
 
-        // Allow Enter key to submit
+        // Allow Enter key to submit (UNCHANGED)
         [emailInput, passwordInput, usernameInput].forEach(input => {
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
