@@ -320,7 +320,7 @@
         // Import Firebase modules
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'; 
+        import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -335,8 +335,8 @@
 
         // Initialize Firebase services
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app); 
-        const db = getFirestore(app); 
+        const auth = getAuth(app);
+        const db = getFirestore(app);
 
         // DOM Elements
         const panel = document.getElementById("panel");
@@ -436,15 +436,17 @@
                         uid: user.uid,
                         name: username,
                         email: email,
-                        role: selectedRole, 
+                        role: selectedRole,
                         createdAt: new Date().toISOString(),
-                    }); 
+                    });
 
                     showSuccess("Account created successfully! Redirecting...");
 
                     // === FIX START: Set the LocalStorage key! ===
                     localStorage.setItem("loggedIn", "true");
                     localStorage.setItem("loggedInUser", username);
+                    // This was missing before:
+                    localStorage.setItem("loggedInRole", selectedRole); 
                     // === FIX END ===
 
                     // Redirect after 1 second
@@ -455,12 +457,28 @@
                 } else {
                     // Sign In
                     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+
+                    // === INTELLIGENT LOGIN FIX ===
+                    // Fetch the correct role from the database instead of relying on the button
+                    let finalRole = selectedRole; 
+
+                    try {
+                        const userDoc = await getDoc(doc(db, "users", user.uid));
+                        if (userDoc.exists()) {
+                            finalRole = userDoc.data().role;
+                        }
+                    } catch(e) {
+                        console.log("Could not fetch role from DB, using selected button.");
+                    }
 
                     showSuccess("Login successful! Redirecting...");
 
                     // === FIX START: Set the LocalStorage key! ===
                     localStorage.setItem("loggedIn", "true");
-                    localStorage.setItem("loggedInUser", userCredential.user.displayName || email);
+                    localStorage.setItem("loggedInUser", user.displayName || email);
+                    // This was missing before:
+                    localStorage.setItem("loggedInRole", finalRole);
                     // === FIX END ===
 
                     // Redirect after 1 second
@@ -529,3 +547,4 @@
 </body>
 
 </html>
+
