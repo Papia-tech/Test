@@ -317,13 +317,10 @@
     </div>
 
     <script type="module">
-        // 🚨 IMPORTANT: Replace the placeholders below with your actual project details
-        
-        // Import Firebase modules for App, Auth, and Firestore
-
+        // Import Firebase modules
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'; // Firestore added
+        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'; 
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
@@ -334,13 +331,12 @@
             messagingSenderId: "557590065392",
             appId: "1:557590065392:web:bcb9d10f40de8b9c2c1235",
             measurementId: "G-DEL9JRXB5X"
-
         };
 
         // Initialize Firebase services
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app); // Authentication service
-        const db = getFirestore(app); // Firestore service added
+        const auth = getAuth(app); 
+        const db = getFirestore(app); 
 
         // DOM Elements
         const panel = document.getElementById("panel");
@@ -358,7 +354,7 @@
         let isSignup = false;
         let selectedRole = "Restaurant";
 
-        // Role Selection (UNCHANGED)
+        // Role Selection
         document.querySelectorAll(".role").forEach(role => {
             role.onclick = () => {
                 document.querySelectorAll(".role").forEach(r => r.classList.remove("active"));
@@ -367,7 +363,7 @@
             };
         });
 
-        // Toggle Between Sign In and Sign Up (UNCHANGED)
+        // Toggle Between Sign In and Sign Up
         toggleBtn.onclick = () => {
             clearMessages();
 
@@ -393,7 +389,7 @@
             isSignup = !isSignup;
         };
 
-        // Main Authentication Button (Firebase Integration)
+        // Main Authentication Button
         mainBtn.onclick = async () => {
             clearMessages();
 
@@ -401,7 +397,7 @@
             const password = passwordInput.value.trim();
             const username = usernameInput.value.trim();
 
-            // Validation (UNCHANGED)
+            // Validation
             if (isSignup && !username) {
                 showError("Please enter your name");
                 return;
@@ -419,7 +415,7 @@
                 return;
             }
 
-            // Disable button and show loading (UNCHANGED)
+            // Disable button and show loading
             mainBtn.disabled = true;
             const originalText = mainBtn.textContent;
             mainBtn.innerHTML = '<span class="spinner"></span>';
@@ -436,16 +432,20 @@
                     });
 
                     // 3. Save user data and role securely to Firestore
-                    // This replaces the insecure localStorage method.
                     await setDoc(doc(db, "users", user.uid), {
                         uid: user.uid,
                         name: username,
                         email: email,
-                        role: selectedRole, // Securely stored role
+                        role: selectedRole, 
                         createdAt: new Date().toISOString(),
                     }); 
 
                     showSuccess("Account created successfully! Redirecting...");
+
+                    // === FIX START: Set the LocalStorage key! ===
+                    localStorage.setItem("loggedIn", "true");
+                    localStorage.setItem("loggedInUser", username);
+                    // === FIX END ===
 
                     // Redirect after 1 second
                     setTimeout(() => {
@@ -458,6 +458,11 @@
 
                     showSuccess("Login successful! Redirecting...");
 
+                    // === FIX START: Set the LocalStorage key! ===
+                    localStorage.setItem("loggedIn", "true");
+                    localStorage.setItem("loggedInUser", userCredential.user.displayName || email);
+                    // === FIX END ===
+
                     // Redirect after 1 second
                     setTimeout(() => {
                         window.location.href = "index.html";
@@ -467,7 +472,6 @@
             } catch (error) {
                 console.error("Authentication error:", error);
 
-                // Handle specific errors (UNCHANGED)
                 let errorMsg = "An error occurred. Please try again.";
 
                 if (error.code === 'auth/email-already-in-use') {
@@ -489,13 +493,12 @@
                 showError(errorMsg);
 
             } finally {
-                // Re-enable button (UNCHANGED)
                 mainBtn.disabled = false;
                 mainBtn.textContent = originalText;
             }
         };
 
-        // Helper Functions (UNCHANGED)
+        // Helper Functions
         function showError(message) {
             errorMessage.textContent = message;
             errorMessage.classList.add("show");
@@ -513,7 +516,7 @@
             successMessage.classList.remove("show");
         }
 
-        // Allow Enter key to submit (UNCHANGED)
+        // Allow Enter key to submit
         [emailInput, passwordInput, usernameInput].forEach(input => {
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
