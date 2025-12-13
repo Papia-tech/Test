@@ -65,7 +65,7 @@
         .hidden {
             display: none !important;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 10px auto;
@@ -159,7 +159,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 45px;
+            margin-top: 0px;
             padding: 60px 0;
             gap: 40px;
         }
@@ -215,6 +215,21 @@
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 30px;
+        }
+
+        .hero-content .dashboard-btn {
+            background: #1a4d2e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
         }
 
         .hero-section .hero-image {
@@ -390,7 +405,7 @@
         #view-how {
             margin-top: 40px;
         }
-        
+
         .listing-form {
             background: white;
             padding: 30px;
@@ -405,16 +420,16 @@
             color: #0f2c1f;
             margin-bottom: 20px;
         }
-        
+
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
-        .form-grid input, 
-        .form-grid textarea, 
-        .form-grid select { 
+        .form-grid input,
+        .form-grid textarea,
+        .form-grid select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
@@ -423,7 +438,7 @@
             outline: none;
             background: white;
         }
-        
+
         .form-group-full {
             grid-column: 1 / -1;
         }
@@ -432,11 +447,13 @@
             resize: vertical;
             min-height: 100px;
         }
-        
-        .form-grid input:focus, .form-grid textarea:focus, .form-grid select:focus {
+
+        .form-grid input:focus,
+        .form-grid textarea:focus,
+        .form-grid select:focus {
             border-color: var(--primary-green);
         }
-        
+
         .upload-wrapper {
             display: flex;
             align-items: center;
@@ -447,20 +464,20 @@
             cursor: pointer;
             transition: border-color 0.2s;
         }
-        
+
         .upload-wrapper:hover {
             border-color: var(--primary-green);
         }
-        
+
         .upload-wrapper input {
             display: none;
         }
-        
+
         .upload-wrapper i {
             font-size: 20px;
             color: #888;
         }
-        
+
         .upload-wrapper span {
             font-size: 14px;
             color: #666;
@@ -565,11 +582,11 @@
             margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 20px; 
+            gap: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             border: 1px solid #eee;
         }
-        
+
         .list-thumb {
             width: 80px;
             height: 80px;
@@ -579,7 +596,7 @@
         }
 
         .card-info {
-            flex: 1; 
+            flex: 1;
         }
 
         .card-info h3 {
@@ -590,7 +607,7 @@
             gap: 12px;
             margin-bottom: 8px;
         }
-        
+
         .restaurant-label {
             font-size: 12px;
             color: #2d7a4d;
@@ -621,7 +638,7 @@
             background: var(--completed-pill);
             color: #fff;
         }
-        
+
         .status-tag {
             background: #e6f2ed;
             color: #2d7a4d;
@@ -638,7 +655,7 @@
             color: #666;
             font-size: 13px;
         }
-        
+
         /* Specific adjustments for NGO cards with more details */
         .ngo-card-details {
             display: grid;
@@ -649,15 +666,18 @@
             margin-top: 5px;
         }
 
-        .card-meta span, .ngo-detail-item {
+        .card-meta span,
+        .ngo-detail-item {
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .card-meta i, .ngo-detail-item i {
+        .card-meta i,
+        .ngo-detail-item i {
             color: #888;
-            width: 16px; /* Align icons */
+            width: 16px;
+            /* Align icons */
             text-align: center;
         }
 
@@ -681,7 +701,7 @@
             border: 1px solid #1a4d2e;
             color: #1a4d2e;
         }
-        
+
         .btn-edit:hover {
             background: #f0f7f4;
         }
@@ -690,13 +710,13 @@
             background: #dc2626;
             color: white;
         }
-        
+
         /* Pick Up Button Style */
         .btn-complete {
-             background: #10b981;
-             color: white;
+            background: #10b981;
+            color: white;
         }
-        
+
         .btn-complete:hover {
             background: #0d9668;
         }
@@ -1084,6 +1104,196 @@
             background: #1e5c38;
         }
 
+        /* NEW PROFILE BUTTON */
+        .profile-btn {
+            background: var(--light-green-bg);
+            color: var(--primary-green);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-btn:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        /* NEW PROFILE MODAL STYLES */
+        .profile-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .profile-modal {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Animation on show */
+        .profile-modal-overlay:not(.hidden) .profile-modal {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .modal-header h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 22px;
+            color: var(--text-dark);
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            color: white;
+            font-size: 30px;
+            line-height: 80px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-info p {
+            font-size: 15px;
+            margin-bottom: 8px;
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .profile-info strong {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        /* --- NEW MODAL STYLES FOR LISTING FORM --- */
+        .listing-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            overflow-y: auto;
+            /* Allow scrolling for small screens */
+            padding: 20px 0;
+        }
+
+        .listing-modal {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            /* Wider for the form */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .listing-modal-overlay:not(.hidden) .listing-modal {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .listing-modal .modal-header h2 {
+            font-size: 24px;
+        }
+
+        .listing-modal .listing-form {
+            /* Remove fixed styles from the original form, but keep content styles */
+            padding: 0;
+            margin-bottom: 0;
+            box-shadow: none;
+        }
+
+        /* === NEW ADD LISTING CARD === */
+        .add-listing-card {
+            background: var(--light-green-bg);
+            border: 2px dashed var(--dashed-border);
+            border-radius: 20px;
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-listing-card .upload {
+            font-size: 40px;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .add-listing-card:hover {
+            background: #d4e8e1;
+            border-color: var(--primary-green);
+        }
+
+        .add-listing-card h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .add-listing-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+
         /* Mobile Responsive */
         @media (max-width: 900px) {
 
@@ -1120,7 +1330,7 @@
             .logo {
                 font-size: 18px;
             }
-            
+
             .form-grid {
                 grid-template-columns: 1fr;
             }
@@ -1143,6 +1353,9 @@
         </nav>
 
         <div class="header-actions">
+            <button class="profile-btn" onclick="toggleProfileModal(event)">
+                <i class="fa-solid fa-user-circle"></i>
+            </button>
             <a onclick="logout()" class="btn-signin">Sign Out</a>
         </div>
     </header>
@@ -1157,6 +1370,8 @@
                     <p class="hero-sub">A real-time platform that connects restaurants with surplus food to nearby NGOs
                         to
                         reduce waste and fight hunger effectively.</p>
+                    <button class="dashboard-btn" onclick="showView('dashboard')">Go to Dashboard <i
+                            class="fa-solid fa-arrow-right-long"></i></button>
                 </div>
                 <div class="hero-image"></div>
             </div>
@@ -1233,9 +1448,9 @@
             <div class="footer">
                 <p>&copy; 2025 SharePlate. All rights reserved.</p>
                 <div class="social-links">
-                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <i class="fa-brands fa-square-facebook"></i>
                     <i class="fa-brands fa-linkedin"></i>
-                    <i class="fa-brands fa-twitter"></i>
                 </div>
             </div>
         </div>
@@ -1272,40 +1487,14 @@
                     </div>
                 </div>
 
-                <div class="listing-form">
-                    <h2>Create Food Listing</h2>
-                    <div class="form-grid">
-                        <input type="text" id="restaurant-name" placeholder="Restaurant Name">
-                        <input type="text" id="restaurant-phone" placeholder="Phone Number">
-                        
-                        <input type="text" id="dish-name" placeholder="Food Name (e.g., Lunch Buffet)">
-                        <input type="number" id="portions-available" placeholder="Portions Available">
-                        
-                        <select id="food-type">
-                            <option value="Vegetarian">Vegetarian</option>
-                            <option value="Non-Veg">Non-Veg</option>
-                            <option value="Vegan">Vegan</option>
-                        </select>
-                        
-                        <input type="text" id="pickup-hours" placeholder="Pickup Hours (e.g., 2:00 PM - 4:00 PM)">
-                        
-                        <label class="upload-wrapper" for="food-image-upload">
-                            <i class="fa-solid fa-camera"></i>
-                            <span id="file-name-display">Upload Food Image (Optional)</span>
-                            <input type="file" id="food-image-upload" accept="image/*" onchange="updateFileName(this)">
-                        </label>
-                        
-                        <input type="text" id="restaurant-address" placeholder="Restaurant Address" class="form-group-full">
-                        <textarea id="food-description" placeholder="Food Description" class="form-group-full"></textarea>
-                    </div>
-                    <button class="create-btn" style="margin-top: 20px;" onclick="addPost()">
-                        <i class="fa-solid fa-plus"></i> Post New Listing
-                    </button>
-                    <button class="action-btn btn-cancel hidden" id="cancel-edit-btn" style="margin-top: 20px; margin-left:10px;" onclick="cancelEdit()">
-                        Cancel Edit
+                <div class="add-listing-card" onclick="toggleCreateModal(true)">
+                    <i class="fa-solid fa-arrow-up-from-bracket upload"></i>
+                    <h3>Add New Food Listing</h3>
+                    <p>Have surplus food? List it now and connect with NGOs in your area.</p>
+                    <button class="create-btn">
+                        <i class="fa-solid fa-plus"></i> Create Listing
                     </button>
                 </div>
-
                 <h2 class="section-title">My Active Listings</h2>
                 <div id="listingContainer">
                     <p>No listings yet. Use the form above to create one!</p>
@@ -1335,7 +1524,7 @@
                         <div class="stat-label">Partner Restaurants</div>
                     </div>
                 </div>
-                
+
                 <h2 class="section-title">My Claims</h2>
                 <div id="claimsContainer">
                     <p>You have no active claims. Browse available food to claim items!</p>
@@ -1374,7 +1563,7 @@
                 <h1>Making Food Sharing Simple</h1>
                 <p>Whether you have food to give or mouths to feed, SharePlate connects you in three simple steps.</p>
             </div>
-            
+
             <div class="role-toggle-container" id="hiw-toggle-container">
                 <div class="toggle-bg">
                     <button id="hiw-btn-rest" class="hiw-toggle-btn active" onclick="setHiwRole('restaurant')">For
@@ -1456,338 +1645,402 @@
         </div>
 
     </div>
+    <div id="profileModal" class="profile-modal-overlay hidden">
+        <div class="profile-modal">
+            <div class="modal-header">
+                <h2>Your Profile</h2>
+                <button class="modal-close-btn" onclick="toggleProfileModal(event)">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-avatar"><i class="fa-solid fa-leaf"></i></div>
+                <div class="profile-info">
+                    <p><strong>Name:</strong> <span id="profileName">Loading...</span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail">Loading...</span></p>
+                    <p><strong>Role:</strong> <span id="profileRole">Loading...</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script type="module">
-    // 1. IMPORT FIREBASE FUNCTIONS
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, updateDoc, onSnapshot, query, where, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    <div id="listingModal" class="listing-modal-overlay hidden">
+        <div class="listing-modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Create Food Listing</h2>
+                <button class="modal-close-btn" onclick="toggleCreateModal(false)">&times;</button>
+            </div>
+            <div class="listing-form">
+                <div class="form-grid">
+                    <input type="text" id="restaurant-name" placeholder="Restaurant Name">
+                    <input type="text" id="restaurant-phone" placeholder="Phone Number">
 
-    // 2. YOUR CONFIGURATION
-    const firebaseConfig = {
-        apiKey: "AIzaSyCaC0u5W3JG1Wmo0FAMmHTOYVrR0KUf8Mw",
-        authDomain: "shareplate-free.firebaseapp.com",
-        projectId: "shareplate-free",
-        messagingSenderId: "407885827230",
-        appId: "1:407885827230:web:a9996e34dde6de896cff8f",
-        measurementId: "G-QSDJ5NGNTZ"
-    };
+                    <input type="text" id="dish-name" placeholder="Food Name (e.g., Lunch Buffet)">
+                    <input type="number" id="portions-available" placeholder="Portions Available">
 
-    // 3. INITIALIZE APP & DATABASE
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const listingsRef = collection(db, "listings");
+                    <select id="food-type">
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                        <option value="Vegan">Vegan</option>
+                    </select>
 
-    // CHECK LOGIN STATUS
-    const isLoggedIn = localStorage.getItem("loggedIn");
-    const currentUser = localStorage.getItem("loggedInUser"); // Used to filter "My Listings"
-    const userRole = localStorage.getItem("loggedInRole");
+                    <input type="text" id="pickup-hours" placeholder="Pickup Hours (e.g., 2:00 PM - 4:00 PM)">
 
-    // Edit State Variables
-    let isEditing = false;
-    let editDocId = null;
-    let cachedMyData = []; // Store data locally to find it for editing
-    let cachedBrowseData = []; // Store active listings for filtering
+                    <label class="upload-wrapper" for="food-image-upload">
+                        <i class="fa-solid fa-camera"></i>
+                        <span id="file-name-display">Upload Food Image (Optional)</span>
+                        <input type="file" id="food-image-upload" accept="image/*" onchange="updateFileName(this)">
+                    </label>
 
-    // Filter State
-    let currentFilterType = "All";
+                    <input type="text" id="restaurant-address" placeholder="Restaurant Address" class="form-group-full">
+                    <textarea id="food-description" placeholder="Food Description" class="form-group-full"></textarea>
+                </div>
+                <button class="create-btn" style="margin-top: 20px;" onclick="addPost()" id="modal-submit-btn">
+                    <i class="fa-solid fa-plus"></i> Post New Listing
+                </button>
+                <button class="action-btn btn-cancel hidden" id="cancel-edit-btn"
+                    style="margin-top: 20px; margin-left:10px;" onclick="cancelEdit()">
+                    Cancel Edit
+                </button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        // 1. IMPORT FIREBASE FUNCTIONS
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, updateDoc, onSnapshot, query, where, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    if (!isLoggedIn) {
-        window.location.href = "login.html";
-    }
+        // 2. YOUR CONFIGURATION
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaC0u5W3JG1Wmo0FAMmHTOYVrR0KUf8Mw",
+            authDomain: "shareplate-free.firebaseapp.com",
+            projectId: "shareplate-free",
+            messagingSenderId: "407885827230",
+            appId: "1:407885827230:web:a9996e34dde6de896cff8f",
+            measurementId: "G-QSDJ5NGNTZ"
+        };
 
-    // =========================================
-    // === 4. HELPER: CONVERT IMAGE TO STRING ===
-    // =========================================
-    const convertBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
+        // 3. INITIALIZE APP & DATABASE
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const listingsRef = collection(db, "listings");
 
-            fileReader.onload = () => {
-                resolve(fileReader.result);
-            };
+        // CHECK LOGIN STATUS
+        const isLoggedIn = localStorage.getItem("loggedIn");
+        const currentUser = localStorage.getItem("loggedInUser"); // Used to filter "My Listings"
+        const userRole = localStorage.getItem("loggedInRole");
 
-            fileReader.onerror = (error) => {
-                reject(error);
-            };
-        });
-    };
-    
-    // =========================================
-    // === UI HELPER: SHOW FILENAME ON SELECT ===
-    // =========================================
-    window.updateFileName = function(input) {
-        const display = document.getElementById("file-name-display");
-        if (input.files && input.files.length > 0) {
-            display.textContent = input.files[0].name; // Show the filename
-            display.style.color = "#2d7a4d"; // Turn text green
-            display.style.fontWeight = "600";
-        } else {
+        // Edit State Variables
+        let isEditing = false;
+        let editDocId = null;
+        let cachedMyData = []; // Store data locally to find it for editing
+        let cachedBrowseData = []; // Store active listings for filtering
+
+        // Filter State
+        let currentFilterType = "All";
+
+        if (!isLoggedIn) {
+            window.location.href = "login.html";
+        }
+
+        // =========================================
+        // === 4. HELPER: CONVERT IMAGE TO STRING ===
+        // =========================================
+        const convertBase64 = (file) => {
+            return new Promise((resolve, reject) => {
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+
+                fileReader.onload = () => {
+                    resolve(fileReader.result);
+                };
+
+                fileReader.onerror = (error) => {
+                    reject(error);
+                };
+            });
+        };
+
+        // =========================================
+        // === UI HELPER: SHOW FILENAME ON SELECT ===
+        // =========================================
+        window.updateFileName = function (input) {
+            const display = document.getElementById("file-name-display");
+            if (input.files && input.files.length > 0) {
+                display.textContent = input.files[0].name; // Show the filename
+                display.style.color = "#2d7a4d"; // Turn text green
+                display.style.fontWeight = "600";
+            } else {
+                display.textContent = "Upload Food Image (Optional)";
+                display.style.color = "#666";
+            }
+        }
+
+        // =========================================
+        // === 5. ADD / UPDATE LISTING FUNCTION ===
+        // =========================================
+        window.addPost = async function () {
+            const title = document.getElementById("dish-name").value;
+            const qty = document.getElementById("portions-available").value;
+            const restName = document.getElementById("restaurant-name").value;
+            const restPhone = document.getElementById("restaurant-phone").value; // Added phone capture
+            const restAddr = document.getElementById("restaurant-address").value;
+            const pickupHours = document.getElementById("pickup-hours").value;
+            const desc = document.getElementById("food-description").value;
+            const type = document.getElementById("food-type").value; // Get the selected type
+            const fileInput = document.getElementById("food-image-upload");
+
+            // Basic Validation
+            if (!title || !qty || !restName) {
+                alert("Please fill in the required fields (Name, Quantity, Restaurant Name).");
+                return;
+            }
+
+            const createBtn = document.getElementById("modal-submit-btn"); // Changed selector to target the modal button
+            const originalBtnText = isEditing ? "Update Listing" : "Post New Listing";
+            createBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            createBtn.disabled = true;
+
+            try {
+                let imageString = "";
+
+                // CONVERT IMAGE TO STRING
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    if (file.size > 800 * 1024) {
+                        alert("Image is too large! Please use images under 800KB.");
+                        createBtn.innerHTML = originalBtnText;
+                        createBtn.disabled = false;
+                        return;
+                    }
+                    imageString = await convertBase64(file);
+                }
+
+                const dataPayload = {
+                    title: title,
+                    quantity: qty,
+                    pickupTime: pickupHours || "2 hours",
+                    dateTime: new Date().toISOString().split('T')[0],
+                    status: "Active",
+                    tags: [type], // Use the selected type
+                    restaurantName: restName,
+                    restaurantPhone: restPhone, // Save phone number
+                    restaurantAddress: restAddr,
+                    description: desc,
+                    createdBy: currentUser,
+                    createdAt: Date.now()
+                };
+
+                // Only update image if a new one was uploaded
+                if (imageString) {
+                    dataPayload.imageUrl = imageString;
+                }
+
+                if (isEditing && editDocId) {
+                    // UPDATE EXISTING DOC
+                    const docRef = doc(db, "listings", editDocId);
+                    await updateDoc(docRef, dataPayload);
+                    alert("Listing updated successfully!");
+                    cancelEdit(); // Reset form and close modal
+                } else {
+                    // CREATE NEW DOC
+                    if (!imageString) dataPayload.imageUrl = ""; // Ensure field exists
+                    await addDoc(listingsRef, dataPayload);
+                    alert("Listing posted successfully!");
+                    clearForm();
+                    toggleCreateModal(false); // Close modal on success
+                }
+
+            } catch (e) {
+                console.error("Error adding/updating document: ", e);
+                alert("Error: " + e.message);
+            } finally {
+                createBtn.innerHTML = isEditing ? '<i class="fa-solid fa-pen"></i> Update Listing' : '<i class="fa-solid fa-plus"></i> Post New Listing';
+                createBtn.disabled = false;
+            }
+        }
+
+        // Helper to clear form
+        function clearForm() {
+            document.getElementById("dish-name").value = '';
+            document.getElementById("portions-available").value = '';
+            document.getElementById("restaurant-name").value = '';
+            document.getElementById("restaurant-phone").value = '';
+            document.getElementById("restaurant-address").value = '';
+            document.getElementById("food-description").value = '';
+            document.getElementById("pickup-hours").value = '';
+            document.getElementById("food-image-upload").value = '';
+
+            const display = document.getElementById("file-name-display");
             display.textContent = "Upload Food Image (Optional)";
             display.style.color = "#666";
         }
-    }
 
-    // =========================================
-    // === 5. ADD / UPDATE LISTING FUNCTION ===
-    // =========================================
-    window.addPost = async function() {
-        const title = document.getElementById("dish-name").value;
-        const qty = document.getElementById("portions-available").value;
-        const restName = document.getElementById("restaurant-name").value;
-        const restPhone = document.getElementById("restaurant-phone").value; // Added phone capture
-        const restAddr = document.getElementById("restaurant-address").value;
-        const pickupHours = document.getElementById("pickup-hours").value;
-        const desc = document.getElementById("food-description").value;
-        const type = document.getElementById("food-type").value; // Get the selected type
-        const fileInput = document.getElementById("food-image-upload");
+        // =========================================
+        // === EDITING FUNCTIONS (MODIFIED) ===
+        // =========================================
+        window.editPost = function (id) {
+            const item = cachedMyData.find(i => i.id === id);
+            if (!item) return;
 
-        // Basic Validation
-        if (!title || !qty || !restName) {
-            alert("Please fill in the required fields (Name, Quantity, Restaurant Name).");
-            return;
+            // Populate fields
+            document.getElementById("restaurant-name").value = item.restaurantName;
+            document.getElementById("restaurant-phone").value = item.restaurantPhone || '';
+            document.getElementById("dish-name").value = item.title;
+            document.getElementById("portions-available").value = item.quantity;
+            document.getElementById("food-type").value = item.tags ? item.tags[0] : 'Vegetarian';
+            document.getElementById("pickup-hours").value = item.pickupTime;
+            document.getElementById("restaurant-address").value = item.restaurantAddress;
+            document.getElementById("food-description").value = item.description || '';
+
+            // Set Edit Mode
+            isEditing = true;
+            editDocId = id;
+
+            // Update Modal UI
+            document.getElementById('modal-title').textContent = "Edit Food Listing";
+            const createBtn = document.getElementById('modal-submit-btn');
+            createBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Update Listing';
+            document.getElementById('cancel-edit-btn').classList.remove('hidden');
+
+            // Open the modal
+            toggleCreateModal(true);
         }
 
-        const createBtn = document.querySelector('#dashboard-restaurant-content .create-btn');
-        const originalBtnText = isEditing ? "Update Listing" : "Post New Listing";
-        createBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
-        createBtn.disabled = true;
+        window.cancelEdit = function () {
+            isEditing = false;
+            editDocId = null;
+            clearForm();
 
-        try {
-            let imageString = ""; 
+            // Reset Modal UI
+            document.getElementById('modal-title').textContent = "Create Food Listing";
+            const createBtn = document.getElementById('modal-submit-btn');
+            createBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Post New Listing';
+            document.getElementById('cancel-edit-btn').classList.add('hidden');
 
-            // CONVERT IMAGE TO STRING
-            if (fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                if (file.size > 800 * 1024) { 
-                    alert("Image is too large! Please use images under 800KB.");
-                    createBtn.innerHTML = originalBtnText;
-                    createBtn.disabled = false;
-                    return;
+            // Close the modal
+            toggleCreateModal(false);
+        }
+
+        // =========================================
+        // === NGO CLAIM & PICKUP FUNCTIONALITY ===
+        // =========================================
+        window.claimFood = async function (docId) {
+            if (!confirm("Are you sure you want to claim this food?")) return;
+
+            try {
+                const docRef = doc(db, "listings", docId);
+                await updateDoc(docRef, {
+                    status: "Claimed",
+                    claimedBy: currentUser,
+                    claimedAt: Date.now()
+                });
+                alert("Food claimed successfully! Check your Dashboard.");
+                window.showView('dashboard'); // Redirect to dashboard
+            } catch (e) {
+                console.error("Error claiming:", e);
+                alert("Error: " + e.message);
+            }
+        }
+
+        // NEW: PICK UP FUNCTION
+        window.pickupFood = async function (docId) {
+            if (!confirm("Confirm pickup? This will mark the food as distributed.")) return;
+
+            try {
+                const docRef = doc(db, "listings", docId);
+                await updateDoc(docRef, {
+                    status: "Completed",
+                    completedAt: Date.now()
+                });
+                alert("Pickup confirmed! Thank you for reducing waste.");
+            } catch (e) {
+                console.error("Error updating pickup:", e);
+                alert(e.message);
+            }
+        }
+
+        // =========================================
+        // === 6. DATA LISTENERS (Real-Time Updates) ===
+        // =========================================
+
+        // LISTENER 1: DASHBOARD (Role Based)
+        if (userRole === 'Restaurant') {
+            const myQuery = query(listingsRef, where("createdBy", "==", currentUser));
+            onSnapshot(myQuery, (snapshot) => {
+                const myData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                cachedMyData = myData; // Save for editing
+                renderDashboardItems(myData);
+                updateDashboardStats(myData);
+            });
+        } else if (userRole === 'NGO') {
+            // Listener for Claims made by this NGO
+            const ngoQuery = query(listingsRef, where("claimedBy", "==", currentUser));
+            onSnapshot(ngoQuery, (snapshot) => {
+                const myClaims = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderNgoClaims(myClaims);
+                updateNgoStats(myClaims);
+            });
+        }
+
+        // LISTENER 2: BROWSE PAGE (Shows ALL Active listings)
+        const browseQuery = query(listingsRef, where("status", "==", "Active"));
+        onSnapshot(browseQuery, (snapshot) => {
+            const allActiveData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            cachedBrowseData = allActiveData; // Cache for Search/Filter
+            filterBrowse();
+        });
+
+        // =========================================
+        // === 7. FILTER & SEARCH LOGIC ===
+        // =========================================
+        window.setFilter = function (filterType, btnElement) {
+            currentFilterType = filterType;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('inactive');
+            });
+            btnElement.classList.remove('inactive');
+            btnElement.classList.add('active');
+            filterBrowse();
+        }
+
+        window.filterBrowse = function () {
+            const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+            const filteredData = cachedBrowseData.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(searchTerm) || item.restaurantName.toLowerCase().includes(searchTerm);
+                let matchesFilter = true;
+                if (currentFilterType !== "All") {
+                    matchesFilter = item.tags && item.tags.includes(currentFilterType);
                 }
-                imageString = await convertBase64(file);
-            }
-
-            const dataPayload = {
-                title: title,
-                quantity: qty,
-                pickupTime: pickupHours || "2 hours",
-                dateTime: new Date().toISOString().split('T')[0],
-                status: "Active",
-                tags: [type], // Use the selected type
-                restaurantName: restName,
-                restaurantPhone: restPhone, // Save phone number
-                restaurantAddress: restAddr,
-                description: desc,
-                createdBy: currentUser,
-                createdAt: Date.now()
-            };
-            
-            // Only update image if a new one was uploaded
-            if(imageString) {
-                dataPayload.imageUrl = imageString;
-            }
-
-            if (isEditing && editDocId) {
-                // UPDATE EXISTING DOC
-                const docRef = doc(db, "listings", editDocId);
-                await updateDoc(docRef, dataPayload);
-                alert("Listing updated successfully!");
-                cancelEdit(); // Reset form
-            } else {
-                // CREATE NEW DOC
-                if(!imageString) dataPayload.imageUrl = ""; // Ensure field exists
-                await addDoc(listingsRef, dataPayload);
-                alert("Listing posted successfully!");
-                clearForm();
-            }
-
-        } catch (e) {
-            console.error("Error adding/updating document: ", e);
-            alert("Error: " + e.message);
-        } finally {
-            if(!isEditing) createBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Post New Listing';
-            createBtn.disabled = false;
-        }
-    }
-    
-    // Helper to clear form
-    function clearForm() {
-        document.getElementById("dish-name").value = '';
-        document.getElementById("portions-available").value = '';
-        document.getElementById("restaurant-name").value = '';
-        document.getElementById("restaurant-phone").value = '';
-        document.getElementById("restaurant-address").value = '';
-        document.getElementById("food-description").value = '';
-        document.getElementById("pickup-hours").value = '';
-        document.getElementById("food-image-upload").value = ''; 
-        
-        const display = document.getElementById("file-name-display");
-        display.textContent = "Upload Food Image (Optional)";
-        display.style.color = "#666";
-    }
-
-    // =========================================
-    // === EDITING FUNCTIONS ===
-    // =========================================
-    window.editPost = function(id) {
-        const item = cachedMyData.find(i => i.id === id);
-        if(!item) return;
-
-        // Populate fields
-        document.getElementById("restaurant-name").value = item.restaurantName;
-        document.getElementById("restaurant-phone").value = item.restaurantPhone || '';
-        document.getElementById("dish-name").value = item.title;
-        document.getElementById("portions-available").value = item.quantity;
-        document.getElementById("food-type").value = item.tags ? item.tags[0] : 'Vegetarian';
-        document.getElementById("pickup-hours").value = item.pickupTime;
-        document.getElementById("restaurant-address").value = item.restaurantAddress;
-        document.getElementById("food-description").value = item.description || '';
-
-        // Set Edit Mode
-        isEditing = true;
-        editDocId = id;
-        
-        // Update Buttons
-        const createBtn = document.querySelector('.create-btn');
-        createBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Update Listing';
-        document.getElementById('cancel-edit-btn').classList.remove('hidden');
-        
-        // Scroll to form
-        document.querySelector('.listing-form').scrollIntoView({ behavior: 'smooth' });
-    }
-    
-    window.cancelEdit = function() {
-        isEditing = false;
-        editDocId = null;
-        clearForm();
-        
-        const createBtn = document.querySelector('.create-btn');
-        createBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Post New Listing';
-        document.getElementById('cancel-edit-btn').classList.add('hidden');
-    }
-    
-    // =========================================
-    // === NGO CLAIM & PICKUP FUNCTIONALITY ===
-    // =========================================
-    window.claimFood = async function(docId) {
-        if(!confirm("Are you sure you want to claim this food?")) return;
-        
-        try {
-            const docRef = doc(db, "listings", docId);
-            await updateDoc(docRef, {
-                status: "Claimed",
-                claimedBy: currentUser,
-                claimedAt: Date.now()
+                return matchesSearch && matchesFilter;
             });
-            alert("Food claimed successfully! Check your Dashboard.");
-            window.showView('dashboard'); // Redirect to dashboard
-        } catch(e) {
-            console.error("Error claiming:", e);
-            alert("Error: " + e.message);
+            renderBrowseCards(filteredData);
         }
-    }
-    
-    // NEW: PICK UP FUNCTION
-    window.pickupFood = async function(docId) {
-        if(!confirm("Confirm pickup? This will mark the food as distributed.")) return;
-        
-        try {
-            const docRef = doc(db, "listings", docId);
-            await updateDoc(docRef, {
-                status: "Completed",
-                completedAt: Date.now()
-            });
-            alert("Pickup confirmed! Thank you for reducing waste.");
-        } catch(e) {
-            console.error("Error updating pickup:", e);
-            alert(e.message);
-        }
-    }
 
-    // =========================================
-    // === 6. DATA LISTENERS (Real-Time Updates) ===
-    // =========================================
-    
-    // LISTENER 1: DASHBOARD (Role Based)
-    if (userRole === 'Restaurant') {
-        const myQuery = query(listingsRef, where("createdBy", "==", currentUser));
-        onSnapshot(myQuery, (snapshot) => {
-            const myData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            cachedMyData = myData; // Save for editing
-            renderDashboardItems(myData);
-            updateDashboardStats(myData);
-        });
-    } else if (userRole === 'NGO') {
-        // Listener for Claims made by this NGO
-        const ngoQuery = query(listingsRef, where("claimedBy", "==", currentUser));
-        onSnapshot(ngoQuery, (snapshot) => {
-            const myClaims = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            renderNgoClaims(myClaims);
-            updateNgoStats(myClaims);
-        });
-    }
+        // =========================================
+        // === 8. RENDER FUNCTIONS ===
+        // =========================================
+        function renderDashboardItems(data) {
+            const container = document.getElementById("listingContainer");
+            if (!container) return;
+            container.innerHTML = "";
 
-    // LISTENER 2: BROWSE PAGE (Shows ALL Active listings)
-    const browseQuery = query(listingsRef, where("status", "==", "Active"));
-    onSnapshot(browseQuery, (snapshot) => {
-        const allActiveData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        cachedBrowseData = allActiveData; // Cache for Search/Filter
-        filterBrowse(); 
-    });
-
-    // =========================================
-    // === 7. FILTER & SEARCH LOGIC ===
-    // =========================================
-    window.setFilter = function(filterType, btnElement) {
-        currentFilterType = filterType;
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-            btn.classList.add('inactive');
-        });
-        btnElement.classList.remove('inactive');
-        btnElement.classList.add('active');
-        filterBrowse();
-    }
-    
-    window.filterBrowse = function() {
-        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
-        
-        const filteredData = cachedBrowseData.filter(item => {
-            const matchesSearch = item.title.toLowerCase().includes(searchTerm) || item.restaurantName.toLowerCase().includes(searchTerm);
-            let matchesFilter = true;
-            if (currentFilterType !== "All") {
-                matchesFilter = item.tags && item.tags.includes(currentFilterType);
+            if (data.length === 0) {
+                container.innerHTML = "<p>No active listings yet. Create one above!</p>";
+                return;
             }
-            return matchesSearch && matchesFilter;
-        });
-        renderBrowseCards(filteredData);
-    }
 
-    // =========================================
-    // === 8. RENDER FUNCTIONS ===
-    // =========================================
-    function renderDashboardItems(data) {
-        const container = document.getElementById("listingContainer");
-        if (!container) return;
-        container.innerHTML = "";
+            data.sort((a, b) => b.createdAt - a.createdAt);
 
-        if (data.length === 0) {
-            container.innerHTML = "<p>No active listings yet. Create one above!</p>";
-            return;
-        }
+            data.forEach((item) => {
+                let badgeClass = item.status === "Active" ? "status-active" : item.status === "Claimed" ? "status-claimed" : "status-completed";
+                let thumb = item.imageUrl || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&h=100&fit=crop";
 
-        data.sort((a, b) => b.createdAt - a.createdAt);
+                // MODIFIED: Show "Claimed & Picked Up" text if completed
+                let statusText = item.status;
+                if (item.status === "Completed") statusText = "Claimed & Picked Up";
 
-        data.forEach((item) => {
-            let badgeClass = item.status === "Active" ? "status-active" : item.status === "Claimed" ? "status-claimed" : "status-completed";
-            let thumb = item.imageUrl || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&h=100&fit=crop";
-            
-            // MODIFIED: Show "Claimed & Picked Up" text if completed
-            let statusText = item.status;
-            if(item.status === "Completed") statusText = "Claimed & Picked Up";
-
-            container.innerHTML += `
+                container.innerHTML += `
                 <div class="listing-card">
                     <img src="${thumb}" class="list-thumb">
                     <div class="card-info">
@@ -1803,39 +2056,39 @@
                         <button class="action-btn btn-cancel" onclick="deletePost('${item.id}')">Delete</button>
                     </div>
                 </div>`;
-        });
-    }
-    
-    // NEW: Render NGO Claims with Details
-    function renderNgoClaims(data) {
-        const container = document.getElementById("claimsContainer");
-        if (!container) return;
-        container.innerHTML = "";
-
-        if (data.length === 0) {
-            container.innerHTML = "<p>You have no active claims. Browse available food to claim items!</p>";
-            return;
+            });
         }
 
-        data.sort((a, b) => b.claimedAt - a.claimedAt);
+        // NEW: Render NGO Claims with Details
+        function renderNgoClaims(data) {
+            const container = document.getElementById("claimsContainer");
+            if (!container) return;
+            container.innerHTML = "";
 
-        data.forEach((item) => {
-            let thumb = item.imageUrl || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&h=100&fit=crop";
-            let vegBadge = item.tags ? `<span class="status-tag">${item.tags[0]}</span>` : '';
-            let phone = item.restaurantPhone || "N/A";
+            if (data.length === 0) {
+                container.innerHTML = "<p>You have no active claims. Browse available food to claim items!</p>";
+                return;
+            }
 
-            // Determine buttons based on status
-            let actionButtons = '';
-            if(item.status === 'Claimed') {
-                actionButtons = `
+            data.sort((a, b) => b.claimedAt - a.claimedAt);
+
+            data.forEach((item) => {
+                let thumb = item.imageUrl || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&h=100&fit=crop";
+                let vegBadge = item.tags ? `<span class="status-tag">${item.tags[0]}</span>` : '';
+                let phone = item.restaurantPhone || "N/A";
+
+                // Determine buttons based on status
+                let actionButtons = '';
+                if (item.status === 'Claimed') {
+                    actionButtons = `
                     <button class="action-btn btn-complete" onclick="pickupFood('${item.id}')">Pick Up</button>
                     <button class="action-btn btn-cancel" onclick="deletePost('${item.id}')">Cancel</button>
                 `;
-            } else {
-                actionButtons = `<span class="status-badge status-completed">Completed</span>`;
-            }
+                } else {
+                    actionButtons = `<span class="status-badge status-completed">Completed</span>`;
+                }
 
-            container.innerHTML += `
+                container.innerHTML += `
                 <div class="listing-card">
                     <img src="${thumb}" class="list-thumb">
                     <div class="card-info">
@@ -1852,27 +2105,27 @@
                          ${actionButtons}
                     </div>
                 </div>`;
-        });
-    }
-
-    function renderBrowseCards(data) {
-        const grid = document.getElementById("foodGrid");
-        const countSpan = document.getElementById("count");
-        if (!grid) return;
-
-        if (countSpan) countSpan.innerText = data.length;
-        grid.innerHTML = "";
-
-        if (data.length === 0) {
-            grid.innerHTML = `<div class="no-results">No listings match your search.</div>`;
-            return;
+            });
         }
 
-        data.forEach(item => {
-            const displayImg = item.imageUrl || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500";
-            let tagsHtml = (item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join("");
+        function renderBrowseCards(data) {
+            const grid = document.getElementById("foodGrid");
+            const countSpan = document.getElementById("count");
+            if (!grid) return;
 
-            grid.innerHTML += `
+            if (countSpan) countSpan.innerText = data.length;
+            grid.innerHTML = "";
+
+            if (data.length === 0) {
+                grid.innerHTML = `<div class="no-results">No listings match your search.</div>`;
+                return;
+            }
+
+            data.forEach(item => {
+                const displayImg = item.imageUrl || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500";
+                let tagsHtml = (item.tags || []).map(tag => `<span class="tag">${tag}</span>`).join("");
+
+                grid.innerHTML += `
                 <div class="food-card">
                     <div class="card-img-container">
                         <img src="${displayImg}" class="card-img"> 
@@ -1889,107 +2142,165 @@
                         <button class="btn-claim" onclick="claimFood('${item.id}')">Claim This Food</button>
                     </div>
                 </div>`;
+            });
+        }
+
+        function updateDashboardStats(data) {
+            const active = data.filter(i => i.status === "Active").length;
+            const claimed = data.filter(i => i.status === "Claimed").length;
+            const completed = data.filter(i => i.status === "Completed").length;
+            const mealsCount = data.filter(i => i.status === "Completed")
+                .reduce((acc, curr) => acc + (parseInt(curr.quantity) || 0), 0);
+
+            const stats = document.querySelectorAll('#stats-restaurant .stat-number');
+            if (stats.length >= 4) {
+                stats[0].innerText = active;
+                stats[1].innerText = claimed;
+                stats[2].innerText = completed;
+                stats[3].innerText = mealsCount;
+            }
+        }
+
+        function updateNgoStats(data) {
+            // Scheduled: Currently Active Claims
+            const scheduled = data.filter(i => i.status === "Claimed").length;
+            // Total Claimed: All items ever claimed (Claimed + Completed)
+            const total = data.length;
+            // Meals Distributed: Completed items
+            const distributed = data.filter(i => i.status === "Completed")
+                .reduce((acc, curr) => acc + (parseInt(curr.quantity) || 0), 0);
+            // Partner Restaurants: Unique restaurant names
+            const partners = new Set(data.map(i => i.restaurantName)).size;
+
+            const stats = document.querySelectorAll('#stats-ngo .stat-number');
+            if (stats.length >= 4) {
+                stats[0].innerText = scheduled;
+                stats[1].innerText = total;
+                stats[2].innerText = distributed;
+                stats[3].innerText = partners;
+            }
+        }
+
+        // =========================================
+        // === 9. GLOBAL UTILITIES ===
+        // =========================================
+        window.deletePost = async function (docId) {
+            if (confirm("Delete this listing permanently?")) {
+                await deleteDoc(doc(db, "listings", docId));
+            }
+        }
+
+        window.logout = function () {
+            localStorage.clear();
+            window.location.href = "login.html";
+        }
+
+        window.showView = function (viewId) {
+            document.querySelectorAll('.view-home, #view-dashboard, #view-browse, #view-how').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+
+            const targetView = document.getElementById('view-' + viewId);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+                const navItem = document.getElementById('nav-' + viewId);
+                if (navItem) navItem.classList.add('active');
+            }
+        }
+
+        // =========================================
+        // === 10. ROLE-BASED UI INITIALIZATION ===
+        // =========================================
+
+        // Set initial view and HOW IT WORKS section based on Role
+        if (userRole === 'NGO') {
+            // UI for NGO
+            document.getElementById("nav-browse").classList.remove('hidden');
+            document.getElementById("dashboard-restaurant-content").classList.add("hidden");
+            document.getElementById("dashboard-ngo-content").classList.remove("hidden");
+
+            // Fix How It Works for NGO: Hide toggle, show only NGO steps
+            document.getElementById("hiw-toggle-container").classList.add("hidden");
+            document.getElementById("hiw-flow-restaurant").classList.add("hidden");
+            document.getElementById("hiw-flow-ngo").classList.remove("hidden");
+
+        } else {
+            // UI for Restaurant
+            document.getElementById("nav-browse").classList.add('hidden');
+            document.getElementById("dashboard-restaurant-content").classList.remove("hidden");
+            document.getElementById("dashboard-ngo-content").classList.add("hidden");
+
+            // Fix How It Works for Restaurant: Hide toggle, show only Restaurant steps
+            document.getElementById("hiw-toggle-container").classList.add("hidden");
+            document.getElementById("hiw-flow-restaurant").classList.remove("hidden");
+            document.getElementById("hiw-flow-ngo").classList.add("hidden");
+        }
+
+        // Toggle FAQ
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.classList.toggle('active');
+            });
         });
-    }
 
-    function updateDashboardStats(data) {
-         const active = data.filter(i => i.status === "Active").length;
-         const claimed = data.filter(i => i.status === "Claimed").length;
-         const completed = data.filter(i => i.status === "Completed").length;
-         const mealsCount = data.filter(i => i.status === "Completed")
-                                .reduce((acc, curr) => acc + (parseInt(curr.quantity) || 0), 0);
+        // =========================================
+        // === NEW: PROFILE MODAL FUNCTIONS ===
+        // =========================================
+        window.toggleProfileModal = function (event) {
+            // Prevent the button click from triggering other events
+            if (event) event.stopPropagation();
 
-         const stats = document.querySelectorAll('#stats-restaurant .stat-number');
-         if(stats.length >= 4) {
-             stats[0].innerText = active;
-             stats[1].innerText = claimed;
-             stats[2].innerText = completed;
-             stats[3].innerText = mealsCount;
-         }
-    }
-    
-    function updateNgoStats(data) {
-        // Scheduled: Currently Active Claims
-        const scheduled = data.filter(i => i.status === "Claimed").length;
-        // Total Claimed: All items ever claimed (Claimed + Completed)
-        const total = data.length; 
-        // Meals Distributed: Completed items
-        const distributed = data.filter(i => i.status === "Completed")
-                                .reduce((acc, curr) => acc + (parseInt(curr.quantity) || 0), 0);
-        // Partner Restaurants: Unique restaurant names
-        const partners = new Set(data.map(i => i.restaurantName)).size;
+            const modalOverlay = document.getElementById('profileModal');
+            const isHidden = modalOverlay.classList.contains('hidden');
 
-        const stats = document.querySelectorAll('#stats-ngo .stat-number');
-        if(stats.length >= 4) {
-            stats[0].innerText = scheduled;
-            stats[1].innerText = total;
-            stats[2].innerText = distributed;
-            stats[3].innerText = partners;
+            if (isHidden) {
+                // Retrieve all necessary information from localStorage
+                const name = localStorage.getItem("loggedInUser") || 'N/A';
+                const email = localStorage.getItem("loggedInEmail") || 'N/A'; // <-- Retrieve the NEW Email key
+                const role = localStorage.getItem("loggedInRole") || 'N/A';
+
+                // Populate the modal before showing it
+                document.getElementById('profileName').textContent = name;
+                document.getElementById('profileEmail').textContent = email; // <-- Display the retrieved email
+                document.getElementById('profileRole').textContent = role;
+
+                modalOverlay.classList.remove('hidden');
+                // Optional: Close modal if user clicks outside of it
+                document.addEventListener('click', closeProfileModalOutside);
+
+            } else {
+                modalOverlay.classList.add('hidden');
+                document.removeEventListener('click', closeProfileModalOutside);
+            }
         }
-    }
 
-    // =========================================
-    // === 9. GLOBAL UTILITIES ===
-    // =========================================
-    window.deletePost = async function(docId) {
-        if (confirm("Delete this listing permanently?")) {
-            await deleteDoc(doc(db, "listings", docId));
+        // Helper function to close the modal when clicking outside
+        function closeProfileModalOutside(event) {
+            const modal = document.querySelector('.profile-modal');
+            const button = document.querySelector('.profile-btn');
+
+            // If the click is not inside the modal, and not on the profile button itself, close it.
+            if (!modal.contains(event.target) && !button.contains(event.target)) {
+                document.getElementById('profileModal').classList.add('hidden');
+                document.removeEventListener('click', closeProfileModalOutside);
+            }
         }
-    }
 
-    window.logout = function() {
-        localStorage.clear();
-        window.location.href = "login.html";
-    }
-
-    window.showView = function(viewId) {
-        document.querySelectorAll('.view-home, #view-dashboard, #view-browse, #view-how').forEach(el => el.classList.add('hidden'));
-        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-        
-        const targetView = document.getElementById('view-' + viewId);
-        if (targetView) {
-            targetView.classList.remove('hidden');
-            const navItem = document.getElementById('nav-' + viewId);
-            if(navItem) navItem.classList.add('active');
+        // =========================================
+        // === NEW: LISTING MODAL FUNCTIONS ===
+        // =========================================
+        window.toggleCreateModal = function (show) {
+            const modalOverlay = document.getElementById('listingModal');
+            if (show) {
+                modalOverlay.classList.remove('hidden');
+            } else {
+                modalOverlay.classList.add('hidden');
+                // If closing, ensure we reset the form state if it was an edit
+                if (isEditing) {
+                    cancelEdit();
+                }
+            }
         }
-    }
-    
-    // =========================================
-    // === 10. ROLE-BASED UI INITIALIZATION ===
-    // =========================================
-    
-    // Set initial view and HOW IT WORKS section based on Role
-    if (userRole === 'NGO') {
-         // UI for NGO
-         document.getElementById("nav-browse").classList.remove('hidden');
-         document.getElementById("dashboard-restaurant-content").classList.add("hidden");
-         document.getElementById("dashboard-ngo-content").classList.remove("hidden");
-         
-         // Fix How It Works for NGO: Hide toggle, show only NGO steps
-         document.getElementById("hiw-toggle-container").classList.add("hidden");
-         document.getElementById("hiw-flow-restaurant").classList.add("hidden");
-         document.getElementById("hiw-flow-ngo").classList.remove("hidden");
-         
-    } else {
-         // UI for Restaurant
-         document.getElementById("nav-browse").classList.add('hidden');
-         document.getElementById("dashboard-restaurant-content").classList.remove("hidden");
-         document.getElementById("dashboard-ngo-content").classList.add("hidden");
-         
-         // Fix How It Works for Restaurant: Hide toggle, show only Restaurant steps
-         document.getElementById("hiw-toggle-container").classList.add("hidden");
-         document.getElementById("hiw-flow-restaurant").classList.remove("hidden");
-         document.getElementById("hiw-flow-ngo").classList.add("hidden");
-    }
-    
-    // Toggle FAQ
-    document.querySelectorAll('.faq-question').forEach(item => {
-        item.addEventListener('click', () => {
-            item.parentElement.classList.toggle('active');
-        });
-    });
-</script>
+    </script>
 </body>
 
 </html>
-

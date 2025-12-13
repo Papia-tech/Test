@@ -277,8 +277,8 @@
     <div class="container">
 
         <div class="back">
-            <div class="logo-top"><i class="fa-solid fa-cloud-meatball"></i> SharePlate</div>
-            <div class="logo-bottom"><i class="fa-solid fa-cloud-meatball"></i> SharePlate</div>
+            <div class="logo-top"><i class="fa-solid fa-leaf"></i> SharePlate</div>
+            <div class="logo-bottom"><i class="fa-solid fa-leaf"></i> SharePlate</div>
         </div>
 
         <div class="minifront" id="mini">
@@ -446,7 +446,7 @@
                     localStorage.setItem("loggedIn", "true");
                     localStorage.setItem("loggedInUser", username);
                     // This was missing before:
-                    localStorage.setItem("loggedInRole", selectedRole); 
+                    localStorage.setItem("loggedInRole", selectedRole);
                     // === FIX END ===
 
                     // Redirect after 1 second
@@ -461,14 +461,14 @@
 
                     // === INTELLIGENT LOGIN FIX ===
                     // Fetch the correct role from the database instead of relying on the button
-                    let finalRole = selectedRole; 
+                    let finalRole = selectedRole;
 
                     try {
                         const userDoc = await getDoc(doc(db, "users", user.uid));
                         if (userDoc.exists()) {
                             finalRole = userDoc.data().role;
                         }
-                    } catch(e) {
+                    } catch (e) {
                         console.log("Could not fetch role from DB, using selected button.");
                     }
 
@@ -477,6 +477,7 @@
                     // === FIX START: Set the LocalStorage key! ===
                     localStorage.setItem("loggedIn", "true");
                     localStorage.setItem("loggedInUser", user.displayName || email);
+                    localStorage.setItem("loggedInEmail", email); // <-- NEW LINE ADDED
                     // This was missing before:
                     localStorage.setItem("loggedInRole", finalRole);
                     // === FIX END ===
@@ -547,4 +548,3 @@
 </body>
 
 </html>
-
